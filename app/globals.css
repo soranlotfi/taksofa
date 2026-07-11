@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* ===== فونت ===== */
-  --font-sans: "Vazirmatn", sans-serif;
-  /* ===== رنگ‌های سبز زمردی ===== */
+  /* ===== رنگ‌های برند ===== */
   --color-emerald-dark: #0A3D32;
   --color-emerald-medium: #145A46;
   --color-emerald-light: #1E7A5E;
-
-  /* ===== رنگ‌های طلایی ===== */
   --color-gold: #C99A3B;
   --color-gold-light: #E8C97A;
   --color-gold-soft: #F2E6CE;
-
-  /* ===== رنگ‌های خنثی ===== */
   --color-cream: #FCFAF5;
+  --color-dark: #1A1A1A;
+}
+
+/* ===== استایل‌های عمومی ===== */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: 'Vazirmatn', sans-serif;
   background-color: var(--color-cream);
-  color: #1A1A1A;
+  color: var(--color-dark);
+  line-height: 1.8;
 }
 
 ::selection {
@@ -27,6 +29,57 @@ body {
   color: #fff;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ===== اسکرول‌بار سفارشی ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8942e;
+}
+
+/* ===== انیمیشن‌ها ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+.animation-delay-300 {
+  animation-delay: 0.3s;
 }

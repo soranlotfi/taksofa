@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/footer";
 
 const vazirmatn = Vazirmatn({
     subsets: ['arabic', 'latin'],
@@ -24,6 +25,7 @@ export default function RootLayout({
         <body className="antialiased">
         <Navbar/>
         {children}
+        <Footer/>
         </body>
         </html>
     );

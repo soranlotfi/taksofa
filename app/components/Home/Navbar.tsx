@@ -75,7 +75,7 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link
-                            href="/about"
+                            href="/about-us"
                             className={`text-white/80 hover:text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all text-sm font-medium ${
                                 pathname === "/about" ? "text-white bg-white/10" : ""
                             }`}

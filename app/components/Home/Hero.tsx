@@ -2,10 +2,9 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
-                 style={{
-                     backgroundImage: "url('https://tse4.mm.bing.net/th/id/OIP.eCuz4btqqZoNHop0OAHtEAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3')",
-                 }}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-center bg-no-repeat"
+                 style={{ backgroundImage: "url('/images/IMG_20260712_222438_105.JPG')" }}
+
         >
             {/* لایه تیره */}
             <div className="absolute inset-0 bg-emerald-dark/45 z-10" />

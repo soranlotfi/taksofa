@@ -47,7 +47,7 @@ export default function Navbar() {
         >
             <div className="flex items-center justify-between">
                 {/* لوگو */}
-                <Link href="/" className="flex items-center gap-2 md:gap-3 no-underline group">
+                <Link href="/public" className="flex items-center gap-2 md:gap-3 no-underline group">
                     <div className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-emerald-dark font-black text-lg md:text-xl shadow-lg shadow-gold/20 flex-shrink-0">
                         م
                     </div>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 <ul className="hidden md:flex items-center gap-1 list-none">
                     <li>
                         <Link
-                            href="/"
+                            href="/home"
                             className={`text-white/80 hover:text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all text-sm font-medium ${
                                 pathname === "/" ? "text-white bg-white/10" : ""
                             }`}
@@ -95,7 +95,7 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link
-                            href="/contact"
+                            href="/contact-us"
                             className={`text-white/80 hover:text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all text-sm font-medium ${
                                 pathname === "/contact" ? "text-white bg-white/10" : ""
                             }`}
@@ -135,7 +135,7 @@ export default function Navbar() {
                 <ul className="flex flex-col gap-1 list-none bg-emerald-dark/90 backdrop-blur-2xl rounded-3xl p-4 border border-white/5 shadow-2xl">
                     <li>
                         <Link
-                            href="/"
+                            href="/public"
                             onClick={closeMenu}
                             className={`block w-full text-center py-3 rounded-xl hover:bg-white/10 transition-all text-base font-medium ${
                                 pathname === "/" ? "text-white bg-white/10" : "text-white/80 hover:text-white"

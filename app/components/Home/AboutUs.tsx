@@ -13,7 +13,8 @@ export default function AboutSection() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <p className="text-gray-700 leading-relaxed mb-4">
-                            <strong>تولیدی مبل تک</strong> از سال ۱۳۸۵ با هدف احیای هنر نجاری و تولید مبلمانی با دوام و زیبا
+                            <strong>تولیدی مبل تک</strong> از سال ۱۳۸۵ با هدف احیای هنر نجاری و تولید مبلمانی با دوام و
+                            زیبا
                             پا به عرصه گذاشت. نام «تک» نماد تعهد ما به <strong>تک‌تک محصولات</strong> و رضایت
                             <strong>تک‌تک مشتریان</strong> است.
                         </p>
@@ -36,11 +37,29 @@ export default function AboutSection() {
                             </li>
                         </ul>
                     </div>
-                    <div className="bg-gradient-to-br from-emerald-light to-emerald-dark rounded-3xl h-72 md:h-96 flex items-center justify-center shadow-2xl relative overflow-hidden">
-                        <span className="text-white/10 text-8xl font-black tracking-widest">مبل تک</span>
-                        <span className="absolute bottom-6 left-6 text-white/60 text-sm bg-black/30 px-4 py-1 rounded-full backdrop-blur-sm">
-              عکس کارگاه
-            </span>
+                    <div className="relative rounded-3xl h-72 md:h-96 shadow-2xl overflow-hidden bg-gradient-to-br from-emerald-light to-emerald-dark">
+                        {/* تصویر با افکت محو (overlay) */}
+                        <div
+                            className="absolute inset-0"
+                            style={{
+                                backgroundImage: "url('/images/IMG_20260712_222438_105.JPG')",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                opacity: 0.6, // شفافیت تصویر برای دیده شدن گرادیان در پشت
+                            }}
+                        />
+
+                        {/* لایه تیره برای خوانایی بهتر */}
+                        <div className="absolute inset-0 bg-emerald-dark/20" />
+
+                        <div className="relative z-10 w-full h-full flex items-center justify-center">
+    <span className="text-white/10 text-8xl font-black tracking-widest">
+      مبل تک
+    </span>
+                            <span className="absolute bottom-6 left-6 text-white/60 text-sm bg-black/30 px-4 py-1 rounded-full backdrop-blur-sm">
+      عکس کارگاه
+    </span>
+                        </div>
                     </div>
                 </div>
             </div>

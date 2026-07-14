@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import data from "@/data.json"
 
 // ===== تعریف نوع‌ها =====
 export interface Settings {

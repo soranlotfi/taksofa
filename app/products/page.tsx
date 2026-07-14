@@ -45,8 +45,8 @@ export default function ProductsSection() {
     const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 3);
 
     return (
-        <section id="products" className="py-20">
-            <div className="container mx-auto px-4 max-w-6xl py-20">
+        <section id="products" className="">
+            <div className="container mx-auto px-4 max-w-6xl" style={{paddingTop: "4rem"}}>
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-emerald-dark inline-block relative">

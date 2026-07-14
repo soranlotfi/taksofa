@@ -12,7 +12,7 @@ export default function CooperationSection() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 mt-8">
                     <Link
-                        href="/contact"
+                        href="/contact-us"
                         className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3 rounded-full transition shadow-md"
                     >
                         تماس با ما

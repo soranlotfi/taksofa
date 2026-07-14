@@ -36,7 +36,7 @@ export default function TeamSection({
                 <div className="text-center mb-12">
                     <span className="text-emerald-600 font-semibold text-sm tracking-widest">✦ تیم ما</span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-800 mt-2">
-                        افراد <span className="text-gold">کلیدی</span>
+                         <span className="text-gold">{title}</span>
                     </h2>
                     <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full mt-3" />
                     <p className="text-gray-500 mt-4">{subtitle}</p>

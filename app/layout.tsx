@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from 'next/font/google';
 import "./globals.css";
-import Navbar from "@/app/components/Home/Navbar";
-import Footer from "@/app/components/Home/footer";
+import Navbar from "@/app/components/UserSideComponents/Navbar";
+import Footer from "@/app/components/UserSideComponents/footer";
 
 const vazirmatn = Vazirmatn({
     subsets: ['arabic', 'latin'],
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="fa" dir="rtl" className={vazirmatn.className}>
-        <body className="antialiased">
+        <body>
         <Navbar/>
         {children}
         <Footer/>

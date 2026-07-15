@@ -1,19 +1,19 @@
+// app/api/ping/route.ts
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/db';
+import { readDB } from '@/lib/db';
 
 export async function GET() {
     try {
-        const client = await clientPromise;
-        const db = client.db('mobletak');
-        await db.command({ ping: 1 });
+        const db = readDB();
         return NextResponse.json({
-            status: '✅ متصل به MongoDB Atlas',
-            message: 'اتصال با موفقیت برقرار شد!',
+            status: '✅ دیتابیس JSON در دسترس است',
+            productsCount: db.products.length,
+            messagesCount: db.messages.length,
         });
     } catch (error: any) {
         return NextResponse.json(
             {
-                status: '❌ اتصال ناموفق',
+                status: '❌ خطا در خواندن دیتابیس',
                 error: error.message,
             },
             { status: 500 }

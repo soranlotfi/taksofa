@@ -8,7 +8,7 @@ import {
     faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import AchievementsSection from "@/app/components/UserSideComponents/AchievementsSection";
-import AboutSection from "@/app/components/UserSideComponents/AboutUs";
+import AboutUs from "@/app/components/UserSideComponents/AboutUs";
 import HistorySection from "@/app/components/UserSideComponents/History";
 import MissionVisionSection from "@/app/about-us/components/MissionsVision";
 import ValuesSection from "@/app/about-us/components/ValuesSection";
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 }}
             >
             </section>
-            <AboutSection/>
+            <AboutUs/>
             {/* ===== بخش تاریخچه ===== */}
             <HistorySection/>
             {/* ===== بخش مأموریت و چشم‌انداز ===== */}

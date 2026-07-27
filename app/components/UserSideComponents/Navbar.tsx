@@ -48,8 +48,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
                 {/* لوگو */}
                 <Link href="/public" className="flex items-center gap-2 md:gap-3 no-underline group">
-                    <div className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-emerald-dark font-black text-lg md:text-xl shadow-lg shadow-gold/20 flex-shrink-0">
-                        م
+                    <div style={{background:`url(/images/logo.jpg)`, backgroundSize:"cover" , backgroundPosition:"center"}} className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-emerald-dark font-black text-lg md:text-xl shadow-lg shadow-gold/20 flex-shrink-0">
                     </div>
                     <div className="flex flex-col leading-tight">
             <span className="text-white font-black text-base md:text-2xl tracking-tight drop-shadow-md">

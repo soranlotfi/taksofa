@@ -12,6 +12,8 @@ const vazirmatn = Vazirmatn({
 });
 
 // ===== متا تگ‌های اصلی =====
+// app/layout.tsx
+
 export const metadata: Metadata = {
     title: {
         default: 'تولیدی مبل تک | تولید کننده مبلمان کلاسیک و مدرن',
@@ -19,6 +21,19 @@ export const metadata: Metadata = {
     },
     description: 'تولیدی مبل تک با بیش از یک دهه تجربه در تولید مبلمان کلاسیک و مدرن با کیفیت بالا.',
     metadataBase: new URL('https://mobltak.ir'),
+
+    // ===== آیکون‌های سایت =====
+    icons: {
+        icon: [
+            { url: '/images/logo.jpg', sizes: 'any' },
+            { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+            { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+        ],
+        apple: [
+            { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        ],
+        shortcut: ['/favicon.ico'],
+    },
 };
 
 // ===== داده‌های ساختاریافته (Schema Markup) برای نمایش در نتایج گوگل =====

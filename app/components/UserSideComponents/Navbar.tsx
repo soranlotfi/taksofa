@@ -10,7 +10,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     // تشخیص صفحه اصلی
-    const isHomePage = pathname === "/home";
+    const isHomePage = pathname === "/";
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -64,9 +64,9 @@ export default function Navbar() {
                 <ul className="hidden md:flex items-center gap-1 list-none">
                     <li>
                         <Link
-                            href="/home"
+                            href="/"
                             className={`text-white/80 hover:text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all text-sm font-medium ${
-                                pathname === "/home" ? "text-white bg-white/10" : ""
+                                pathname === "/" ? "text-white bg-white/10" : ""
                             }`}
                         >
                             خانه
@@ -134,10 +134,10 @@ export default function Navbar() {
                 <ul className="flex flex-col gap-1 list-none bg-emerald-dark/90 backdrop-blur-2xl rounded-3xl p-4 border border-white/5 shadow-2xl">
                     <li>
                         <Link
-                            href="/home"
+                            href="/"
                             onClick={closeMenu}
                             className={`block w-full text-center py-3 rounded-xl hover:bg-white/10 transition-all text-base font-medium ${
-                                pathname === "/home" ? "text-white bg-white/10" : "text-white/80 hover:text-white"
+                                pathname === "/" ? "text-white bg-white/10" : "text-white/80 hover:text-white"
                             }`}
                         >
                             خانه

@@ -1,0 +1,10 @@
+# robots.txt برای تولیدی مبل تک
+User-agent: *
+Allow: /
+
+# ممنوعیت دسترسی به صفحات مدیریت
+Disallow: /admin/
+Disallow: /admin/settings
+
+# نقشه سایت
+Sitemap: https://mobltak.ir/sitemap.xml

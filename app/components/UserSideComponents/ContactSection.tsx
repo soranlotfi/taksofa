@@ -262,37 +262,6 @@ export default function ContactSection() {
                         </div>
 
                         {/* کارت شبکه‌های اجتماعی داخلی */}
-                        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8">
-                            <h4 className="text-lg font-bold text-emerald-800 flex items-center gap-3 mb-4">
-                                <span className="text-gold">✦</span> شبکه‌های اجتماعی داخلی
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                                <a
-                                    href={data.rubikaLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium px-4 py-2 rounded-full text-sm transition border border-purple-200"
-                                >
-                                    <RubikaIcon /> روبیکا
-                                </a>
-                                <a
-                                    href={data.balleLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium px-4 py-2 rounded-full text-sm transition border border-blue-200"
-                                >
-                                    <span>🔵</span> بله
-                                </a>
-                                <a
-                                    href={data.eitaLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-green-50 hover:bg-green-100 text-green-700 font-medium px-4 py-2 rounded-full text-sm transition border border-green-200"
-                                >
-                                    <span>🟢</span> ایتا
-                                </a>
-                            </div>
-                        </div>
 
                         {/* کارت شبکه‌های اجتماعی خارجی + نقشه */}
                         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8">
@@ -379,6 +348,38 @@ export default function ContactSection() {
                                 </p>
                             </div>
                         </div>
+                        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8">
+                            <h4 className="text-lg font-bold text-emerald-800 flex items-center gap-3 mb-4">
+                                <span className="text-gold">✦</span> شبکه‌های اجتماعی داخلی
+                            </h4>
+                            <div className="flex flex-wrap gap-3">
+                                <a
+                                    href={data.rubikaLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium px-4 py-2 rounded-full text-sm transition border border-purple-200"
+                                >
+                                    <RubikaIcon /> روبیکا
+                                </a>
+                                <a
+                                    href={data.balleLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium px-4 py-2 rounded-full text-sm transition border border-blue-200"
+                                >
+                                    <span>🔵</span> بله
+                                </a>
+                                <a
+                                    href={data.eitaLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 bg-green-50 hover:bg-green-100 text-green-700 font-medium px-4 py-2 rounded-full text-sm transition border border-green-200"
+                                >
+                                    <span>🟢</span> ایتا
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
 
                     {/* ===== ستون فرم ===== */}

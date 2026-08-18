@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import ProductsModal from "@/app/products/Components/ProductsModal";
 
+// ===== تعریف نوع محصول =====
 interface Product {
     id: number;
     title: string;
@@ -35,57 +37,30 @@ function toPersianDigits(num: string | number): string {
     return String(num).replace(/\d/g, (d) => persianDigits[d] || d);
 }
 
-// ===== کامپوننت مدال نمایش عکس =====
-function ImageModal({
-                        src,
-                        alt,
-                        onClose,
-                    }: {
-    src: string;
-    alt: string;
-    onClose: () => void;
-}) {
-    return (
-        <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
-            onClick={onClose}
-        >
-            <div
-                className="relative max-w-5xl w-full max-h-[90vh]"
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button
-                    onClick={onClose}
-                    className="absolute -top-14 right-0 text-white/70 hover:text-white text-4xl font-light transition-colors"
-                    aria-label="بستن"
-                >
-                    ✕
-                </button>
-                <img
-                    src={src}
-                    alt={alt}
-                    className="w-full h-full max-h-[85vh] object-contain rounded-2xl shadow-2xl"
-                />
-            </div>
-        </div>
-    );
+// ===== Props کامپوننت =====
+interface ProductCardProps {
+    product: Product;               // محصول فعلی
+    allProducts?: Product[];        // لیست کامل محصولات (برای گالری)
+    onGalleryOpen?: (product: Product) => void; // تابع اختیاری برای مدیریت گالری در والد
 }
 
-export default function ProductCard({ product }: { product: Product }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+export default function ProductCard({
+                                        product,
+                                        allProducts = [],
+                                        onGalleryOpen,
+                                    }: ProductCardProps) {
+    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
-    const handleImageClick = (imageSrc: string) => {
-        setSelectedImage(imageSrc);
-        setIsModalOpen(true);
+    // ===== باز کردن گالری =====
+    const handleImageClick = () => {
+        if (onGalleryOpen) {
+            onGalleryOpen(product);
+        } else {
+            setIsGalleryOpen(true);
+        }
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setSelectedImage(null);
-    };
-
-    // محاسبه درصد تخفیف
+    // ===== محاسبه درصد تخفیف =====
     const discountPercent = product.comparePrice
         ? Math.round(((product.comparePrice - product.price) / product.comparePrice) * 100)
         : 0;
@@ -93,14 +68,10 @@ export default function ProductCard({ product }: { product: Product }) {
     return (
         <>
             <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 border border-gray-50 group">
-                {/* ===== تصویر ===== */}
+                {/* ===== تصویر محصول ===== */}
                 <div
                     className="h-56 bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center relative overflow-hidden cursor-pointer"
-                    onClick={() => {
-                        if (product.images.length > 0) {
-                            handleImageClick(product.images[0]);
-                        }
-                    }}
+                    onClick={handleImageClick}
                 >
                     {product.images.length > 0 ? (
                         <img
@@ -112,7 +83,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         <span className="text-gray-400 font-bold">بدون تصویر</span>
                     )}
 
-                    {/* برچسب‌ها */}
+                    {/* ===== برچسب‌ها ===== */}
                     <span className="absolute top-4 right-4 bg-emerald-dark text-gold text-xs font-bold px-3 py-1 rounded-full shadow-lg">
             {product.isFeatured ? "ویژه" : "جدید"}
           </span>
@@ -123,7 +94,7 @@ export default function ProductCard({ product }: { product: Product }) {
             </span>
                     )}
 
-                    {/* آیکون بزرگنمایی */}
+                    {/* ===== آیکون بزرگنمایی (هاور) ===== */}
                     {product.images.length > 0 && (
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
               <span className="bg-white/90 text-emerald-dark text-3xl w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
@@ -131,19 +102,29 @@ export default function ProductCard({ product }: { product: Product }) {
               </span>
                         </div>
                     )}
+
+                    {/* ===== تعداد تصاویر ===== */}
+                    {product.images.length > 1 && (
+                        <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
+              {product.images.length} 📷
+            </span>
+                    )}
                 </div>
 
                 {/* ===== اطلاعات محصول ===== */}
                 <div className="p-6">
+                    {/* عنوان */}
                     <h3 className="text-xl font-bold text-emerald-dark group-hover:text-gold transition-colors line-clamp-1">
                         {product.title}
                     </h3>
 
+                    {/* مشخصات */}
                     <div className="flex flex-wrap gap-3 text-sm text-gray-500 mt-2">
                         <span>📐 {product.dimensions || "—"}</span>
                         <span>🪵 {product.woodType || "—"}</span>
                     </div>
 
+                    {/* توضیحات */}
                     <p className="text-gray-600 text-sm mt-3 mb-4 line-clamp-2">
                         {product.description}
                     </p>
@@ -166,42 +147,35 @@ export default function ProductCard({ product }: { product: Product }) {
                         )}
                     </div>
 
-                    {/* ===== دکمه استعلام قیمت ===== */}
-                    <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 text-gold font-bold hover:gap-4 transition-all duration-300 border-b-2 border-gold/20 hover:border-gold pb-1 group-hover:gap-4"
-                    >
-                        <span>استعلام قیمت</span>
-                        <span>←</span>
-                    </a>
+                    {/* ===== دکمه‌های اقدام ===== */}
+                    <div className="flex items-center gap-4">
+                        <a
+                            href="#contact"
+                            className="inline-flex items-center gap-2 text-gold font-bold hover:gap-4 transition-all duration-300 border-b-2 border-gold/20 hover:border-gold pb-1 group-hover:gap-4"
+                        >
+                            <span>استعلام قیمت</span>
+                            <span>←</span>
+                        </a>
+
+                        {allProducts.length > 0 && (
+                            <button
+                                onClick={handleImageClick}
+                                className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1"
+                            >
+                                <span>🖼️</span> گالری
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
 
-            {/* ===== مدال نمایش عکس بزرگ ===== */}
-            {isModalOpen && selectedImage && (
-                <ImageModal
-                    src={selectedImage}
-                    alt={product.title}
-                    onClose={closeModal}
+            {/* ===== گالری تصاویر (مودال) ===== */}
+            {isGalleryOpen && (
+                <ProductsModal
+                    product={product}
+                    onClose={() => setIsGalleryOpen(false)}
                 />
             )}
-
-            {/* ===== استایل انیمیشن ===== */}
-            <style jsx>{`
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: scale(0.95);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
-                }
-                .animate-fadeIn {
-                    animation: fadeIn 0.25s ease-out forwards;
-                }
-            `}</style>
         </>
     );
 }

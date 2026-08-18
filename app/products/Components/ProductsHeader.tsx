@@ -1,9 +1,9 @@
 export default function ProductsHeader() {
     return (
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 py-10">
-            <div>
+        <div className="flex flex-col md:flex-col justify-between items-end mb-12 py-10">
+            <div className={"flex-col items-start w-full md:items-center"}>
                 <h2 className="text-3xl md:text-5xl font-extrabold text-emerald-dark inline-block relative">
-                    محصولات ویژه
+                    محصولات مبلمان تک
                     <span className="absolute -bottom-3 right-0 w-16 h-1 bg-gold rounded-full" />
                 </h2>
                 <p className="text-gray-500 mt-6 text-lg">

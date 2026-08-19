@@ -180,8 +180,8 @@ export default function ContactSection() {
         }
         const { mapLat, mapLng } = data;
         return {
-            geo: `geo:${mapLat},${mapLng}?q=${mapLat},${mapLng}`,
-            google: `https://www.google.com/maps/search/?api=1&query=${mapLat},${mapLng}`,
+            neshan:`https://nshn.ir/maps?destination=${mapLat},${mapLng}&type=drive`,
+            balad: `https://balad.ir/p?lat=${mapLat}&lng=${mapLng}`,            google: `https://www.google.com/maps/search/?api=1&query=${mapLat},${mapLng}`,
             osm: `https://www.openstreetmap.org/?mlat=${mapLat}&mlon=${mapLng}&zoom=15`,
             apple: `http://maps.apple.com/?q=${mapLat},${mapLng}`,
         };
@@ -293,22 +293,7 @@ export default function ContactSection() {
                                 >
                                     <FontAwesomeIcon icon={faTelegram} className="w-4 h-4 text-blue-600" /> تلگرام
                                 </a>
-                                <a
-                                    href={data.aparatLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-red-50 hover:bg-red-100 text-red-700 font-medium px-4 py-2 rounded-full text-sm transition border border-red-200"
-                                >
-                                    <AparatIcon /> آپارات
-                                </a>
-                                <a
-                                    href={data.youtubeLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-red-50 hover:bg-red-100 text-red-700 font-medium px-4 py-2 rounded-full text-sm transition border border-red-200"
-                                >
-                                    <FontAwesomeIcon icon={faYoutube} className="w-4 h-4 text-red-600" /> یوتیوب
-                                </a>
+
                             </div>
 
                             {/* بخش نقشه */}
@@ -317,15 +302,23 @@ export default function ContactSection() {
                                     <FontAwesomeIcon icon={faMapLocationDot} className="text-gold" /> موقعیت کارگاه
                                 </p>
                                 <div className="flex flex-wrap gap-3">
-                                    <a
-                                        href={mapLinks.geo}
+                                    {/*<a
+                                        href={mapLinks.balad}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow-md"
                                     >
                                         <FontAwesomeIcon icon={faMapLocationDot} className="w-4 h-4" />
-                                        باز کردن در نقشه (پیش‌فرض دستگاه)
-                                    </a>
+                                        مسیریاب بلد
+                                    </a> <a
+                                        href={mapLinks.neshan}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow-md"
+                                    >
+                                        <FontAwesomeIcon icon={faMapLocationDot} className="w-4 h-4" />
+                                        مسیریاب نشان
+                                    </a>*/}
                                     <a
                                         href={mapLinks.google}
                                         target="_blank"
